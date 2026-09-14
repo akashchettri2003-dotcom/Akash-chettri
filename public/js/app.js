@@ -112,3 +112,14 @@ $("#menuBtn").onclick=()=>{const nav=$(".desktop-nav");nav.style.display=nav.sty
 
 window.openWork=openWork;window.favorite=favorite;window.startReader=startReader;
 loadWorks();updateAccount();
+async function buyWork(workId) {
+  try {
+    const data = await api(`/api/payments/checkout/${workId}`, { method: "POST" });
+    if (data.url) window.location.href = data.url;
+  } catch (e) {
+    if (e.message === "Sign in required") openAuth("login");
+    else toast(e.message);
+  }
+}
+
+window.buyWork = buyWork;
