@@ -1,0 +1,17 @@
+{
+  "name": "Gen/Visual",
+  "short_name": "Gen/Visual",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f0e9",
+  "theme_color": "#f4f0e9",
+  "description": "An independent library of novels and comics.",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2319213b'/><text y='.9em' x='18' font-size='70' fill='%23d94b3d'>✦</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
