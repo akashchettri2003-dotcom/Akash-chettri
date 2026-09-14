@@ -1,0 +1,8 @@
+dbs:
+  - path: /app/data/genvisual.db
+    replicas:
+      - type: s3
+        bucket: ${BACKUP_BUCKET_NAME}
+        path: db
+        region: auto
+        endpoint: ${S3_ENDPOINT}
