@@ -1,0 +1,6 @@
+{
+  "appId": "com.genvisual.app",
+  "appName": "Gen/Visual",
+  "webDir": "public",
+  "server": { "url": "https://your-genvisual-domain.onrender.com", "cleartext": true }
+}
