@@ -269,3 +269,18 @@ app.use(express.static(PUBLIC,{extensions:["html"]}));
 app.get("*",(req,res)=>res.sendFile(path.join(PUBLIC,"index.html")));
 
 app.listen(PORT,()=>console.log(`GEN/VISUAL running on http://localhost:${PORT}`));
+// Schedule daily SQLite backup at midnight
+const BACKUP_DIR = path.join(DATA, "backups");
+fs.mkdirSync(BACKUP_DIR, { recursive: true });
+
+function performBackup() {
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const destPath = path.join(BACKUP_DIR, `genvisual-${timestamp}.db`);
+  
+  db.backup(destPath)
+    .then(() => console.log(`[Backup] Successfully saved to ${destPath}`))
+    .catch((err) => console.error("[Backup Failed]", err));
+}
+
+// Run backup every 24 hours
+setInterval(performBackup, 24 * 60 * 60 * 1000);
