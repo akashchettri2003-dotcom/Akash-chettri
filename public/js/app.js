@@ -123,3 +123,6 @@ async function buyWork(workId) {
 }
 
 window.buyWork = buyWork;
+const actionBtn = w.price > 0 
+  ? `<button class="btn btn-dark" onclick="buyWork(${w.id})">Unlock for ₹${w.price}</button>`
+  : `<button class="btn btn-dark" onclick="startReader('${esc(w.slug)}')">Start reading →</button>`;
